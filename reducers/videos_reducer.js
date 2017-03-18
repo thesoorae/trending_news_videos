@@ -5,11 +5,11 @@ import {
   RECEIVE_VIDEO
 } from '../actions/video_actions';
 
-const VideosReducer = (state = {}, action) => {
+const videosReducer = (state = {videos: "none", current_video:""}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_VIDEOS:
-      return merge({}, {videos: action.videos});
+      return merge({}, state, {videos: action.videos});
     case RECEIVE_VIDEO:
       return merge({}, state, {current_video: action.video});
     default:
@@ -17,4 +17,4 @@ const VideosReducer = (state = {}, action) => {
   }
 };
 
-export default VideosReducer;
+export default videosReducer;
