@@ -1,0 +1,21 @@
+.video-index{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: flex-start;
+
+}
+
+.video-index-item{
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 500px;
+  width: 500px;
+}
+
+.video-index-item > img{
+  max-width: 200px;
+  
+}

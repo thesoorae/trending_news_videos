@@ -16,7 +16,7 @@ export const receiveVideo = video =>({
 
 export const requestAllVideos = () => (dispatch) => {
   return APIUtil.fetchAllVideos()
-    .then(videos => dispatch(receiveAllVideos(videos)));
+    .then(obj => dispatch(receiveAllVideos(obj.data)));
 };
 
 export const requestVideo = (id) => (dispatch) => {
