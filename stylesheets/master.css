@@ -1,11 +1,18 @@
+body, html, a, h1, h2, h3, p, div, img, ul, li{
+  margin: 0;
+  padding: 0;
+  font-family: "Verdana", sans-serif;
+
+}
+
 .logo{
   width: 100px;
 }
 .video-index{
   display: flex;
-  flex-direction: column;
-  width: 50%;
-  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
   margin: auto;
 
 }
@@ -14,18 +21,26 @@
   border: 1px solid gray;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 500px;
-  width: 500px;
+  justify-content: flex-start;
+  height: 400px;
+  width: 350px;
+
+  margin: 30px;
 }
 
 .video-index-item * {
   margin: auto;
+  text-align: center;
 
 }
 
-.video-index-item > img{
-  max-width: 400px;
+.video-index-item > .thumbnail {
+  width: 350px;
+  max-height: 300px;
+  overflow: hidden;
+}
+.thumbnail >  img{
+  max-width: 350px;
 
 }
 .video-show{
@@ -34,6 +49,7 @@
 }
 .video-show *{
   margin: auto;
+  text-align: center;
 }
 .video-show > img{
   max-width: 400px;

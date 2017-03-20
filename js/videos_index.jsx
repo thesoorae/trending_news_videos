@@ -3,7 +3,10 @@ import VideoIndexItem from './video_index_item';
 
 class VideoIndex extends React.Component{
   componentDidMount(){
+    if(this.props.videos == "none"){
     this.props.requestAllVideos();
+    }
+
   }
 
   render(){
@@ -12,9 +15,9 @@ class VideoIndex extends React.Component{
     return videos == "none" ?
     <div>Loading</div> :
       (<div className="video-index">
-        <div>
+        
           {videos.map(video => <VideoIndexItem key={video.nid} video={video} />)}
-        </div>
+
       </div>
     );
   }

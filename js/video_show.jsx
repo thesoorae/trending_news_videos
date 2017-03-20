@@ -1,4 +1,5 @@
 import React from 'react';
+import {formatDate} from '../reducers/selectors';
 
 class VideoShow extends React.Component{
   constructor(props){
@@ -55,11 +56,16 @@ class VideoShow extends React.Component{
       </div>);
     }
 
+    let date = video.created;
+    if(date){
+      date = (formatDate(date));
+    }
+
     return  video === "" ? <div>Loading</div> :
     (<div className="video-show">
       <div className="title"><h2>{video.title}</h2></div>
       <div className="description">{video.description}</div>
-      <div className="date">{video.created}</div>
+      <div className="date">{date}</div>
       <img src={thumbnail} />
       <div className="emotions-bar">
         {emotionsBar}

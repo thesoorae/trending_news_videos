@@ -1,6 +1,7 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
 
+import {formatDate} from '../reducers/selectors';
 
 
 class VideoIndexItem extends React.Component {
@@ -15,13 +16,15 @@ class VideoIndexItem extends React.Component {
   render(){
     let video = this.props.video;
     let date = video.created;
-    date = date.slice(0, 10);
-    date = new Date(date);
-    console.log(date);
+    date = formatDate(date);
+
     return (
       <div className="video-index-item" onClick={this.handleClick}>
-          <span>{video.title}</span>
-          <img src={video.image} alt={video.title} />
+        <div className="thumbnail">
+        <img src={video.image} alt={video.title} />
+        </div>
+          <h2>{video.title}</h2>
+          <div className="date">{date}</div>
           <span>{video.description}</span>
       </div>
 
