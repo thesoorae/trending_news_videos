@@ -31,5 +31,11 @@ module.exports = {
     hot: true
   },
 
-  devtool: 'source-map'
+  devtool: 'source-map',
+
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ]
 };
