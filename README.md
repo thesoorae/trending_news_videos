@@ -1,3 +1,5 @@
+[Live Demo](http://ajplus-top-ten.herokuapp.com/)
+
 ## Introduction
 Single page app that displays top ten news videos from AJ+ API, and links to a detailed show page with embedded video player.
 
