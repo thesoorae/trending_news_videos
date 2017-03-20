@@ -1,12 +1,19 @@
 import {connect} from 'react-redux';
 import {selectTenVideos} from '../reducers/selectors';
-import {requestAllVideos} from '../actions/video_actions';
-import VideoShow from './videos_show';
-const mapStateToProps = state => ({
-  video: selectTenVideos(state.videos)
+import {requestVideo, requestEmotions, postReaction} from '../actions/video_actions';
+import VideoShow from './video_show';
+
+const mapStateToProps = (state, ownProps) => ({
+  video: state.current_video,
+  nid: ownProps.params.batchId,
+  emotions: state.current_emotion
 });
+
 const mapDispatchToProps = dispatch => ({
-  requestAllVideos: () =>  dispatch(requestAllVideos())
+  requestVideo: (id) =>  dispatch(requestVideo(id)),
+  requestEmotions: (id) => dispatch(requestEmotions(id)),
+  postReaction: data => dispatch(postReaction(data))
+
 });
 
 export default connect(

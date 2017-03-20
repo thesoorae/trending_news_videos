@@ -13,7 +13,7 @@ class VideoIndex extends React.Component{
     <div>Loading</div> :
       (<div className="video-index">
         <div>
-          {videos.map(video => <VideoIndexItem key={video.nid} video={video}/>)}
+          {videos.map(video => <VideoIndexItem key={video.nid} video={video} />)}
         </div>
       </div>
     );
