@@ -1,15 +1,15 @@
-##Introduction
+## Introduction
 Single page app that displays top ten news videos from AJ+ API, and links to a detailed show page with embedded video player.
 
-##How to Run Locally
+## How to Run Locally
 Download files
 ```run npm install```
 ```run npm start```
 Navigate to ```localhost:8080```
 
-##Architecture
+## Architecture
 
-###Components
+###  Components
 -  Video Index Container
 -  Video Index Component
 -  Video Index Item
@@ -20,7 +20,7 @@ Navigate to ```localhost:8080```
 -  Entry
 -  Loader
 
-###Redux State Shape
+### Redux State Shape
 ```
 state: {
   videos: [...],
@@ -28,13 +28,13 @@ state: {
   current_emotions: {}
 }
 ```
-###API HTTP Requests
+### API HTTP Requests
 -  ```fetchAllVideos()```
 -  ```fetchVideo(id)```
 -  ```fetchEmotions(id)```
 -  ```postEmotion(emotion)```
 
-###Dispatched Actions
+### Dispatched Actions
 -  ```receiveAllVideos()```
 -  ```receiveVideo(id) ```
 -  ```receiveEmotions(id)```
