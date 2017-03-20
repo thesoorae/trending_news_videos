@@ -8,9 +8,24 @@ body, html, a, h1, h2, h3, p, div, img, ul, li{
 body{
   background-color: #faf8f5;
 }
-.logo{
-  width: 100px;
+div.header {
+  height: 100px;
   margin: 30px;
+  position: relative;
+}
+.header > h1{
+  margin: auto;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 30px;
+  font-size: 40px;
+
+}
+.logo{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100px;
 }
 .video-index{
   display: flex;
@@ -92,7 +107,6 @@ box-shadow: 10px 10px 66px -6px rgba(0,0,0,0.45);
 
 }
 .video-show > img{
-  max-width: 600px;
   margin: 0 auto;
 }
 

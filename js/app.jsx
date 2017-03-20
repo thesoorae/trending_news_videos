@@ -6,7 +6,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <Link to={`/`}><img className="logo" src="http://www.ajplus.net/english/favicon-196x196.png"/></Link>
+        <Link to={`/`}>
+        <div className="header">
+        <img className="logo" src="http://www.ajplus.net/english/favicon-196x196.png"/>
+        <h1>Top Trending Videos</h1>
+      </div>
+      </Link>
         {this.props.children || <VideoIndexContainer />}
       </div>
     );
