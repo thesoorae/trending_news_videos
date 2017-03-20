@@ -9,7 +9,7 @@ class App extends React.Component {
         <Link to={`/`}>
         <div className="header">
         <img className="logo" src="http://www.ajplus.net/english/favicon-196x196.png"/>
-        <h1>Top Trending Videos</h1>
+        <h1>Top Ten Trending Videos</h1>
       </div>
       </Link>
         {this.props.children || <VideoIndexContainer />}
