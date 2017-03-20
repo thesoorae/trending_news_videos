@@ -2,10 +2,10 @@
   "name": "ajplus",
   "version": "1.0.0",
   "description": "",
-  "main": "entry.jsx",
+  "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node entry.jsx",
+    "start": "node webpack.config.js",
     "postinstall": "webpack"
   },
   "keywords": [],
