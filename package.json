@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --inline --content-base ."
+    "start": "webpack-dev-server --inline --content-base .",
+    "prod": "NODE_ENV=production node server.js",
+    "build": "webpack --config webpack.prod.config.js -p --progress --colors",
+    "postinstall": "webpack --config webpack.prod.config.js -p --progress --colors"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.15.2",
     "lodash": "^4.17.4",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
