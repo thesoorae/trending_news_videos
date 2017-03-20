@@ -1,5 +1,7 @@
 import React from 'react';
 import VideoIndexItem from './video_index_item';
+import {Loader} from './loader';
+
 
 class VideoIndex extends React.Component{
   componentDidMount(){
@@ -11,11 +13,10 @@ class VideoIndex extends React.Component{
 
   render(){
     const videos = this.props.videos;
-    console.log(this.props.videos);
     return videos == "none" ?
-    <div>Loading</div> :
+    <Loader/>:
       (<div className="video-index">
-        
+
           {videos.map(video => <VideoIndexItem key={video.nid} video={video} />)}
 
       </div>

@@ -1,14 +1,17 @@
 import React from 'react';
 import {formatDate} from '../reducers/selectors';
+import {Loader} from './loader';
 
 class VideoShow extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       emotions: "",
-      voted: false
+      voted: false,
+      play: false
     };
     this.toggleEmotion = this.toggleEmotion.bind(this);
+    this.playVideo = this.playVideo.bind(this);
   }
   componentDidMount(){
     this.props.requestVideo(this.props.params.id);
@@ -27,18 +30,30 @@ class VideoShow extends React.Component{
       }
     }
 
+  playVideo(){
+    this.setState({play: true});
+  }
 
   render(){
 
     let video = this.props.video;
     let emotions = this.state.emotions;
 
-    let thumbnail = video.thumbnail;
-    if (thumbnail == null){
+    let thumbnail_link = video.large_video_thumbnail;
+    if (thumbnail_link == null){
       // let images = video.styled_images;
       // let image = images[0];
       // thumbnail = image.styled_image_base_url + image.styled_image_url;
-      thumbnail = video.image;
+      thumbnail_link = video.image;
+    }
+    let thumbnail = <img className="clickable" onClick={this.playVideo} src={thumbnail_link} />;
+
+    if(this.state.play){
+      let videoLink = video.video;
+      let dimensions = video.dimensions.split('x');
+      let width = dimensions[0];
+      let height = dimensions[1];
+      thumbnail = <iframe width={width} height={height} className="video-frame" src={videoLink} allowFullScreen />;
     }
 
     let emotionsBar = [];
@@ -52,6 +67,7 @@ class VideoShow extends React.Component{
       emotionsBar.push(<div className="emotion clickable" id={emotion} onClick={this.toggleEmotion}>
       <img className="emoji" src={emojis[emotion]} />
       <div className="emoji-title">{emotion}</div>
+
       <div className="votes">Votes: {emotions[emotion]['total']}</div>
       </div>);
     }
@@ -61,13 +77,13 @@ class VideoShow extends React.Component{
       date = (formatDate(date));
     }
 
-    return  video === "" ? <div>Loading</div> :
+
+    return  video === "" ? <div>Loading<Loader /></div> :
     (<div className="video-show">
       <div className="title"><h1>{video.title}</h1></div>
         <div className="date">{date}</div>
-
       <div className="description">{video.description}</div>
-      <img src={thumbnail} />
+      {thumbnail}
       <div className="emotions-bar">
         {emotionsBar}
       </div>
