@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Video extends React.Component{
+class VideoShow extends React.Component{
   render(){
     return(
       <div>Video{this.props.params.id}</div>
@@ -8,4 +8,4 @@ class Video extends React.Component{
   }
 }
 
-export default Video;
+export default VideoShow;

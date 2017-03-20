@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 50%;
   justify-content: flex-start;
+  margin: auto;
 
 }
 
@@ -15,7 +16,12 @@
   width: 500px;
 }
 
+.video-index-item * {
+  margin: auto;
+
+}
+
 .video-index-item > img{
-  max-width: 200px;
-  
+  max-width: 400px;
+
 }

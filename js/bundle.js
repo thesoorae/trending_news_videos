@@ -11375,10 +11375,10 @@ var Root = function Root(_ref) {
     { store: store },
     _react2.default.createElement(
       _reactRouterDom.BrowserRouter,
-      null,
+      { history: _reactRouterDom.hashHistory },
       _react2.default.createElement(
         _reactRouterDom.Route,
-        { path: '/', component: _app2.default },
+        { path: '/', component: _app2.default, store: store },
         _react2.default.createElement(_reactRouterDom.Route, { path: 'videos/:id', component: _video2.default })
       )
     )
@@ -11408,6 +11408,10 @@ var _videos_reducer2 = _interopRequireDefault(_videos_reducer);
 var _thunk = __webpack_require__(112);
 
 var _thunk2 = _interopRequireDefault(_thunk);
+
+var _router = __webpack_require__(267);
+
+var _router2 = _interopRequireDefault(_router);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -44438,26 +44442,31 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-//
-// <Link to={`/videos/${video.nid}`}>
-//     </Link>
-
 var VideoIndexItem = function (_React$Component) {
   _inherits(VideoIndexItem, _React$Component);
 
-  function VideoIndexItem() {
+  function VideoIndexItem(props) {
     _classCallCheck(this, VideoIndexItem);
 
-    return _possibleConstructorReturn(this, (VideoIndexItem.__proto__ || Object.getPrototypeOf(VideoIndexItem)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (VideoIndexItem.__proto__ || Object.getPrototypeOf(VideoIndexItem)).call(this, props));
+
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
   }
 
   _createClass(VideoIndexItem, [{
+    key: 'handleClick',
+    value: function handleClick() {
+      var nid = this.props.video.nid;
+      this.props.router.push('/videos/' + nid);
+    }
+  }, {
     key: 'render',
     value: function render() {
       var video = this.props.video;
       return _react2.default.createElement(
         'div',
-        { className: 'video-index-item' },
+        { className: 'video-index-item', onClick: this.handleClick },
         _react2.default.createElement(
           'span',
           null,
@@ -44600,6 +44609,13 @@ Object.defineProperty(exports, "__esModule", {
 var selectTenVideos = exports.selectTenVideos = function selectTenVideos(videos) {
   return videos.slice(0, 10);
 };
+
+/***/ },
+/* 267 */
+/***/ function(module, exports) {
+
+"use strict";
+"use strict";
 
 /***/ }
 /******/ ]);

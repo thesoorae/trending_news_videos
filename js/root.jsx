@@ -1,15 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Router, Route, Link, hashHistory } from 'react-router';
 import {Provider} from 'react-redux';
 import App from './app.jsx';
-import Video from './video.jsx';
+import VideoShow from './video.jsx';
 import Home from './home.jsx';
 
 const Root = ({store}) => (
 <Provider store={store}>
-  <Router>
-    <Route path="/" component={App}>
-      <Route path="videos/:id" component={Video}></Route>
+  <Router history={hashHistory}>
+    <Route path="/" component={App} store={store}>
+      <Route path="videos/:id" component={VideoShow}></Route>
     </Route>
   </Router>
   </Provider>
