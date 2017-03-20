@@ -19,13 +19,13 @@ class VideoIndexItem extends React.Component {
     date = formatDate(date);
 
     return (
-      <div className="video-index-item" onClick={this.handleClick}>
+      <div className="video-index-item clickable" onClick={this.handleClick}>
         <div className="thumbnail">
         <img src={video.image} alt={video.title} />
         </div>
           <h2>{video.title}</h2>
           <div className="date">{date}</div>
-          <span>{video.description}</span>
+          <div className="description">{video.description}</div>
       </div>
 
     );

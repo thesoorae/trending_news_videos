@@ -23,7 +23,7 @@ class VideoShow extends React.Component{
         let emotion = e.currentTarget.id;
         let newEmotions = this.state.emotions;
         newEmotions[emotion]['total'] += 1;
-        this.setState({emotions: newEmotions});
+        this.setState({emotions: newEmotions, voted: true});
       }
     }
 
@@ -63,9 +63,10 @@ class VideoShow extends React.Component{
 
     return  video === "" ? <div>Loading</div> :
     (<div className="video-show">
-      <div className="title"><h2>{video.title}</h2></div>
+      <div className="title"><h1>{video.title}</h1></div>
+        <div className="date">{date}</div>
+
       <div className="description">{video.description}</div>
-      <div className="date">{date}</div>
       <img src={thumbnail} />
       <div className="emotions-bar">
         {emotionsBar}

@@ -1,7 +1,7 @@
 body, html, a, h1, h2, h3, p, div, img, ul, li{
   margin: 0;
   padding: 0;
-  font-family: "Verdana", sans-serif;
+  font-family: "Helvetica", sans-serif;
 
 }
 
@@ -13,28 +13,49 @@ body, html, a, h1, h2, h3, p, div, img, ul, li{
   flex-direction: row;
   flex-wrap: wrap;
   width: 80%;
-  margin: auto;
-
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .video-index-item{
-  border: 1px solid gray;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  height: 400px;
-  width: 350px;
 
+  max-height: 400px;
+  width: 350px;
   margin: 30px;
+  border-radius: 3px;
+
+  -webkit-box-shadow: 10px 10px 110px -32px rgba(0,0,0,0.32);
+  -moz-box-shadow: 10px 10px 110px -32px rgba(0,0,0,0.32);
+  box-shadow: 10px 10px 110px -32px rgba(0,0,0,0.32);
 }
 
-.video-index-item * {
-  margin: auto;
+div.clickable:hover{
+  -webkit-box-shadow: 10px 10px 66px -6px rgba(0,0,0,0.45);
+-moz-box-shadow: 10px 10px 66px -6px rgba(0,0,0,0.45);
+box-shadow: 10px 10px 66px -6px rgba(0,0,0,0.45);
+}
+
+.video-index-item > h2, .date, .description{
+  margin: 5px;
   text-align: center;
 
 }
 
+.date{
+  color: gray;
+  font-style: italic;
+  font-size: 14px;
+}
+.description{
+  font-size: 15px;
+  text-align: justify;
+  padding: 0 20px 20px 20px;
+
+}
 .video-index-item > .thumbnail {
+  margin: 0;
   width: 350px;
   max-height: 300px;
   overflow: hidden;
@@ -46,25 +67,48 @@ body, html, a, h1, h2, h3, p, div, img, ul, li{
 .video-show{
   width: 80%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .video-show *{
   margin: auto;
   text-align: center;
 }
+
+.video-show > .date{
+  font-size: 16px;
+  margin: 10px;
+}
+.video-show >.description{
+  font-size: 16px;
+  width: 50%;
+
+}
 .video-show > img{
-  max-width: 400px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 .emotions-bar {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  width: 50%;
+  margin-top: 30px;
 }
 .emotion {
   width: 100px;
 }
 
+
 .emoji{
-  width: 100px;
+  width: 50px;
+}
+.emoji-title, .votes{
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  color: gray;
 }
 
 .clickable{
